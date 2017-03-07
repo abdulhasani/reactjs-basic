@@ -1,4 +1,13 @@
-/**
- * Created by Hasani on 3/7/2017.
- */
-console.log('Some thing this is');
+import React from "react";
+import { render } from "react-dom";
+class App extends React.Component{
+    render(){
+        return (
+            <div>
+                <h1>Hello, React JS Beatiful</h1>
+            </div>
+        );
+    }
+}
+
+render(<App/>,window.document.getElementById("app"));
