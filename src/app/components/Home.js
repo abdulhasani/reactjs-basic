@@ -3,23 +3,34 @@
  */
 import React from "react";
 export class Home extends React.Component{
-    render(){
-        /**
-         * keyword let berarti variabel tersebut hanya berlaku untuk
-         * block tertentu
-         * @type {string}
-         */
-        let content = "";
-        if(true){
-            content = <p>Hello !</p>;
+    constructor(props){
+        super();
+        this.state = {
+            age: props.initialAge,
+            status: 0
         }
+
+    }
+    onMakeOlder(){
+        this.setState({
+           age: this.state.age + 3
+
+        });
+    }
+    render(){
         return(
             <div>
                 <p>In new Component</p>
-                {content}
-                {"Hello Rindu"}
-                { 5 == 45 ? "YES":"NO"}
+                <p>Your name is {this.props.name}, your age is {this.state.age}</p>
+                <p>Status: {this.state.status}</p>
+                <hr/>
+                <button onClick={()=> this.onMakeOlder()} className="btn btn-primary">Make me older</button>
             </div>
         );
     }
 }
+
+Home.propTypes = {
+    name: React.PropTypes.string,
+    initialAge : React.PropTypes.number
+};
